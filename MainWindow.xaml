@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoFilledIn"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="辅助录入工具" Height="600" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="402,12,0,0" TextWrapping="Wrap" Text="民族：" VerticalAlignment="Top" IsEnabled="False"/>
+        <ComboBox x:Name="NationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="PersonalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
+        <TextBox x:Name="ReEnterIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="194,12,0,0" TextWrapping="Wrap" Text="发展编号：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="DevelopIdBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,102,0,0" TextWrapping="Wrap" Text="入团时间：" VerticalAlignment="Top" IsEnabled="False"/>
+        <ComboBox x:Name="RegisteredYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True"/>
+        <ComboBox x:Name="RegisteredMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True"/>
+        <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="TelephoneNumerBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,130,0,0" TextWrapping="Wrap" Text="户籍地址：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="82,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="20"/>
+        <CheckBox x:Name="IfRegAsVolunteerBox" Content="是否成为注册志愿者" HorizontalAlignment="Left" Margin="366,160,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <DataGrid x:Name="StudentData" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,190,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Width="60"/>
+                <DataGridTextColumn />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
