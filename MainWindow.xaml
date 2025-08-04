@@ -10,7 +10,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="402,12,0,0" TextWrapping="Wrap" Text="民族：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="NationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True"/>
+        <ComboBox x:Name="NationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" />
         <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="PersonalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
@@ -18,8 +18,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="194,12,0,0" TextWrapping="Wrap" Text="发展编号：" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox x:Name="DevelopIdBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
         <TextBlock HorizontalAlignment="Left" Margin="18,102,0,0" TextWrapping="Wrap" Text="入团时间：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="RegisteredYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True"/>
-        <ComboBox x:Name="RegisteredMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True"/>
+        <ComboBox x:Name="RegistedYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True"/>
+        <ComboBox x:Name="RegistedMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True"/>
         <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
@@ -44,11 +44,9 @@
         <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
         <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
-        <DockPanel Margin="576,142,130,427">
-            <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" DockPanel.Dock="Left" Width="44" />
-            <CheckBox x:Name="HotKeyShift" Content="Shift" DockPanel.Dock="Left" Width="52" />
-        </DockPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="673,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
+        <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" Width="44" Margin="572,143,184,427" />
+        <CheckBox x:Name="HotKeyShift" Content="Shift" Width="52" Margin="622,143,126,427" />
+        <TextBlock HorizontalAlignment="Left" Margin="674,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
         <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="689,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1"/>
 
 
