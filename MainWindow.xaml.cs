@@ -39,5 +39,10 @@ namespace AutoFilledIn
             
             StudentData.ItemsSource = StudentDataList;
         }
+
+        private void CreateNewColumnButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
