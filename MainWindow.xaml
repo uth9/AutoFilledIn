@@ -8,46 +8,88 @@
         Title="辅助录入工具" Height="600" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False" />
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" />
-        <TextBlock HorizontalAlignment="Left" Margin="402,12,0,0" TextWrapping="Wrap" Text="民族：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="nationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" />
-        <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
-        <TextBox x:Name="reEnterIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName}" >
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="194,12,0,0" TextWrapping="Wrap" Text="发展编号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="developIdBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBox x:Name="developNumberBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding developedNumber}">
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="402,12,0,0" TextWrapping="Wrap" Text="民族：" VerticalAlignment="Top" IsEnabled="False"/>
+        <ComboBox x:Name="nationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" SelectedItem="{Binding studentNation}" ItemsSource="{Binding nationList}">
+            <ComboBox.DataContext>
+                <local:Student/>
+            </ComboBox.DataContext>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId}">
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
+        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId}">
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,102,0,0" TextWrapping="Wrap" Text="入团时间：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="registedYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" IsEditable="True"/>
-        <ComboBox x:Name="registedMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True"/>
+        <ComboBox x:Name="registedYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" IsEditable="True" SelectedItem="{Binding regYear}" ItemsSource="{Binding regYearList}">
+            <ComboBox.DataContext>
+                <local:Student/>
+            </ComboBox.DataContext>
+        </ComboBox>
+        <ComboBox x:Name="registedMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True" SelectedItem="{Binding regMonth}" ItemsSource="{Binding regMonthList}">
+            <ComboBox.DataContext>
+                <local:Student/>
+            </ComboBox.DataContext>
+        </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber}">
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,130,0,0" TextWrapping="Wrap" Text="户籍地址：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Margin="82,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="20"/>
-        <CheckBox x:Name="ifRegAsVolunteerBox" Content="是否成为注册志愿者" HorizontalAlignment="Left" Margin="366,160,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Margin="82,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="20" Text="{Binding address}">
+            <TextBox.DataContext>
+                <local:Student/>
+            </TextBox.DataContext>
+        </TextBox>
+        <CheckBox x:Name="ifRegAsVolunteerBox" Content="是否成为注册志愿者" HorizontalAlignment="Left" Margin="366,160,0,0" VerticalAlignment="Top" IsChecked="{Binding volunteerState}">
+            <CheckBox.DataContext>
+                <local:Student/>
+            </CheckBox.DataContext>
+        </CheckBox>
         <DataGrid x:Name="studentData" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,190,0,0" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="姓名" Width="60"/>
                 <DataGridTextColumn Header="民族" Width="40"/>
                 <DataGridTextColumn Header="发展编号" Width="110" />
+                <DataGridTextColumn Header="入团时间" Width="80" />
                 <DataGridTextColumn Header="联系方式" Width="90" />
                 <DataGridTextColumn Header="身份证号" Width="180" />
-                <DataGridTextColumn Header="住址" Width="240" />
+                <DataGridTextColumn Header="住址" Width="180" />
                 <DataGridTextColumn Header="志愿者" Width="53" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>
         <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>
+        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
         <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>
+        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113" />
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
-        <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" Width="44" Margin="572,143,184,427" />
-        <CheckBox x:Name="HotKeyShift" Content="Shift" Width="52" Margin="622,143,126,427" />
-        <TextBlock HorizontalAlignment="Left" Margin="674,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
-        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="689,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="659,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
+        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1"/>
+        <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="567,143,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="HotKeyShift" Content="Shift" HorizontalAlignment="Left" Margin="609,143,0,0" VerticalAlignment="Top"/>
 
 
     </Grid>

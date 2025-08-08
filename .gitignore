@@ -1,2 +1,10 @@
-obj/
-obj/*/
+obj/*
+obj/*/*
+obj/*/*/*/*
+.vs/*
+.vs/*/*
+.vs/*/*/*/*
+/.vs
+/.vs/AutoFilledIn/CopilotIndices/17.14.939.21063
+/obj
+/.vs/AutoFilledIn/CopilotIndices/17.14.939.21063

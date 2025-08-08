@@ -19,3 +19,4 @@ C:\Users\111\source\repos\AutoFilledIn\AutoFilledIn\obj\Debug\net8.0-windows\ref
 C:\Users\111\source\repos\AutoFilledIn\AutoFilledIn\obj\Debug\net8.0-windows\AutoFilledIn.pdb
 C:\Users\111\source\repos\AutoFilledIn\AutoFilledIn\obj\Debug\net8.0-windows\AutoFilledIn.genruntimeconfig.cache
 C:\Users\111\source\repos\AutoFilledIn\AutoFilledIn\obj\Debug\net8.0-windows\ref\AutoFilledIn.dll
+C:\Users\111\source\repos\AutoFilledIn\AutoFilledIn\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
