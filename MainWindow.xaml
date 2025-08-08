@@ -67,16 +67,19 @@
                 <local:Student/>
             </CheckBox.DataContext>
         </CheckBox>
-        <DataGrid x:Name="studentData" d:ItemsSource="{d:SampleData ItemCount=0}" Margin="0,190,0,0" Grid.ColumnSpan="3">
+        <DataGrid x:Name="studentData" Margin="0,190,0,0" Grid.ColumnSpan="3" >
+            <DataGrid.DataContext>
+                <local:Student/>
+            </DataGrid.DataContext>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="姓名" Width="60"/>
-                <DataGridTextColumn Header="民族" Width="40"/>
-                <DataGridTextColumn Header="发展编号" Width="110" />
-                <DataGridTextColumn Header="入团时间" Width="80" />
-                <DataGridTextColumn Header="联系方式" Width="90" />
-                <DataGridTextColumn Header="身份证号" Width="180" />
-                <DataGridTextColumn Header="住址" Width="180" />
-                <DataGridTextColumn Header="志愿者" Width="53" />
+                <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding studentName}"/>
+                <DataGridTextColumn Header="民族" Width="40" Binding="{Binding studentNation}"/>
+                <DataGridTextColumn Header="发展编号" Width="110" Binding="{Binding developedNumber}"/>
+                <DataGridTextColumn Header="入团时间" Width="80" Binding="{Binding regDate}"/>
+                <DataGridTextColumn Header="联系方式" Width="90" Binding="{Binding telephoneNumber}"/>
+                <DataGridTextColumn Header="身份证号" Width="180" Binding="{Binding personalId}"/>
+                <DataGridTextColumn Header="住址" Width="180" Binding="{Binding address}"/>
+                <DataGridTextColumn Header="志愿者" Width="53" Binding="{Binding volunteerState}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>

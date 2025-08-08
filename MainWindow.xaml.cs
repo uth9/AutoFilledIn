@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System;
+using System.Collections;
 
 namespace AutoFilledIn
 {
@@ -24,7 +25,7 @@ namespace AutoFilledIn
         
         
         /// 初始化显示列表资源
-        public required List<List<string>> studentDataList;
+        public List<Student> studentDataList = new List<Student>();
 
         public void RefreshDataContext(Student student)
         {
@@ -38,14 +39,18 @@ namespace AutoFilledIn
             telephoneNumberBox.DataContext = student;
             addressBox.DataContext = student;
             ifRegAsVolunteerBox.DataContext = student;
+            studentData.ItemsSource = studentDataList;
         }
+
+        
         
         public MainWindow()
         {
             InitializeComponent();
+            studentData.ItemsSource = studentDataList;
 
             /// 生成默认对象
-            Student student = new Student
+            Student student = new Student(true)
             {
                 studentName = "",
                 studentNation = "汉族",
@@ -55,20 +60,32 @@ namespace AutoFilledIn
                 address = "",
                 regDate = ["2025", "01"],
                 telephoneNumber = "",
-                volunteerState = true
+                volunteerState = true,
             };
+            studentDataList.Add(student);
             RefreshDataContext(student);
             
 
             
-            /// 绑定默认对象
-            //this.DataContext = student;
-            //registedYearBox.DataContext = ;
+            
         }
 
         private void CreateNewColumnButton_Click(object sender, RoutedEventArgs e)
         {
             
+            studentDataList.Add(new Student(true)
+            {
+                studentName = "",
+                studentNation = "汉族",
+                personalId = "",
+                reConfirmedId = "",
+                developedNumber = "",
+                address = "",
+                regDate = ["2025", "01"],
+                telephoneNumber = "",
+                volunteerState = true,
+            });
+            RefreshDataContext(studentDataList[^1]);
         }
     }
 }

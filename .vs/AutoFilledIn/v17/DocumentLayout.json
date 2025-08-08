@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|c:\\users\\111\\source\\repos\\autofilledin\\autofilledin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|c:\\users\\111\\source\\repos\\autofilledin\\autofilledin\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|c:\\users\\111\\source\\repos\\autofilledin\\autofilledin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|c:\\users\\111\\source\\repos\\autofilledin\\autofilledin\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -36,20 +36,20 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAwwC0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAADEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T04:49:45.664Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Student.cs",
               "DocumentMoniker": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\Student.cs",
               "RelativeDocumentMoniker": "Student.cs",
               "ToolTip": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\Student.cs",
               "RelativeToolTip": "Student.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAowIcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAwFkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-07T14:30:33.595Z",
               "EditorCaption": ""
@@ -68,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
