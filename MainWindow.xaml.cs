@@ -25,7 +25,7 @@ namespace AutoFilledIn
         
         
         /// 初始化显示列表资源
-        public List<Student> studentDataList = new List<Student>();
+        public ObservableCollection<Student> studentDataList = new ObservableCollection<Student>();
 
         public void RefreshDataContext(Student student)
         {
@@ -58,7 +58,7 @@ namespace AutoFilledIn
                 reConfirmedId = "",
                 developedNumber = "",
                 address = "",
-                regDate = ["2025", "01"],
+                regDate = "2025/01",
                 telephoneNumber = "",
                 volunteerState = true,
             };
@@ -81,7 +81,7 @@ namespace AutoFilledIn
                 reConfirmedId = "",
                 developedNumber = "",
                 address = "",
-                regDate = ["2025", "01"],
+                regDate = "2025/01",
                 telephoneNumber = "",
                 volunteerState = true,
             });

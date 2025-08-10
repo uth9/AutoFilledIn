@@ -133,13 +133,10 @@ namespace AutoFilledIn
             }
         }
         private string[] _regDate = ["2025", "01"];
-        public string[] regDate
+        public string regDate
         {
-            get => this._regDate;
-            set
-            {
-                this._regDate = value;
-            }
+            get => string.Concat(this._regDate[0], "/", this._regDate[1]);
+            set { _regDate = value.Split('/'); }
         }
         public string regYear
         {

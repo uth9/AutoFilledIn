@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoFilledIn"
         mc:Ignorable="d"
-        Title="辅助录入工具" Height="600" Width="800" ResizeMode="CanMinimize">
+        Title="辅助录入工具" Height="600" Width="820" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False" />
         <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName}" >
@@ -67,12 +67,12 @@
                 <local:Student/>
             </CheckBox.DataContext>
         </CheckBox>
-        <DataGrid x:Name="studentData" Margin="0,190,0,0" Grid.ColumnSpan="3" >
+        <DataGrid x:Name="studentData" Margin="0,190,0,0" Grid.ColumnSpan="3" AutoGenerateColumns="False" SelectionMode="Single" EnableRowVirtualization="False" IsReadOnly="True" >
             <DataGrid.DataContext>
                 <local:Student/>
             </DataGrid.DataContext>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding studentName}"/>
+                <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding studentName}" />
                 <DataGridTextColumn Header="民族" Width="40" Binding="{Binding studentNation}"/>
                 <DataGridTextColumn Header="发展编号" Width="110" Binding="{Binding developedNumber}"/>
                 <DataGridTextColumn Header="入团时间" Width="80" Binding="{Binding regDate}"/>
@@ -82,17 +82,17 @@
                 <DataGridTextColumn Header="志愿者" Width="53" Binding="{Binding volunteerState}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" Click="CreateNewColumnButton_Click"/>
-        <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113"/>
-        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113" />
+        <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="CreateNewColumnButton_Click"/>
+        <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
+        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
+        <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
+        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113"  IsTabStop="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="659,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
-        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1"/>
-        <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="567,143,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="HotKeyShift" Content="Shift" HorizontalAlignment="Left" Margin="609,143,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1" IsTabStop="False"/>
+        <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="567,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
+        <CheckBox x:Name="HotKeyShift" Content="Shift" HorizontalAlignment="Left" Margin="609,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
 
 
     </Grid>
