@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-08-10T11:51:08.395Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAADAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T04:49:45.664Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T04:49:45.664Z"
             },
             {
               "$type": "Document",
@@ -79,8 +78,7 @@
               "ToolTip": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-04T11:43:43.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T11:43:43.877Z"
             },
             {
               "$type": "Document",
@@ -91,8 +89,7 @@
               "ToolTip": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-03T13:13:28.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-03T13:13:28.146Z"
             }
           ]
         }
