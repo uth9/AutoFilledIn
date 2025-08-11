@@ -83,9 +83,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="CreateNewColumnButton_Click"/>
-        <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
-        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
-        <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False"/>
+        <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="DelColumnButton_Click"/>
+        <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="ReloadFromButton_Click"/>
+        <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="SaveToButton_Click"/>
         <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113"  IsTabStop="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
 

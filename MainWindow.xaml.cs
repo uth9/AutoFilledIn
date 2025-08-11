@@ -1,5 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections;
+using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows;
@@ -11,8 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System;
-using System.Collections;
+using System.Xml.Serialization;
 
 namespace AutoFilledIn
 {
@@ -21,13 +23,13 @@ namespace AutoFilledIn
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        public int selectedIndex;
-
-
         /// 初始化显示列表资源
         public ObservableCollection<Student> studentDataList = new ObservableCollection<Student>();
 
+        /// 初始化数据库相关定义
+        private static string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Data.mdf");
+
+        /// 刷新数据上下文
         public void RefreshDataContext(Student student)
         {
             nameBox.DataContext = student;
@@ -43,8 +45,7 @@ namespace AutoFilledIn
             studentData.ItemsSource = studentDataList;
         }
 
-        
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -94,8 +95,23 @@ namespace AutoFilledIn
 
         private void studentData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            this.selectedIndex = studentData.SelectedIndex;
+            int selectedIndex = studentData.SelectedIndex;
             RefreshDataContext(studentDataList[selectedIndex]);
+        }
+
+        private void DelColumnButton_Click(object sender, RoutedEventArgs e)
+        {
+            studentDataList.Remove((Student)studentData.SelectedItem);
+        }
+
+        private void ReloadFromButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void SaveToButton_Click(object sender, RoutedEventArgs e)
+        {
+            string XmlString = XmlHelper.Serialize((ObservableCollection<Student>)studentDataList);
         }
     }
 }

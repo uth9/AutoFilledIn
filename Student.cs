@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace AutoFilledIn
 {
+    [XmlRoot("Student")]
+    public class StudentList : List<Student> { }
+
     public class Student : INotifyPropertyChanged
     {
         public Student() { }
@@ -20,6 +24,7 @@ namespace AutoFilledIn
 
         /// 初始化日期
         private static string _todayYear = DateTime.Today.ToString("yyyy");
+        [XmlIgnore]
         public string todayYear
         {
             get
@@ -36,6 +41,7 @@ namespace AutoFilledIn
             }
         }
         private static string _todayMonth = DateTime.Today.ToString("MM");
+        [XmlIgnore]
         public string todayMonth
         {
             get
@@ -52,6 +58,7 @@ namespace AutoFilledIn
             }
         }
         private static string[] _regYearList = ["2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044"];
+        [XmlIgnore]
         public string[] regYearList
         {
             get
@@ -69,6 +76,7 @@ namespace AutoFilledIn
             set { }
         }
         private static string[] _regMonthList = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+        [XmlIgnore]
         public string[] regMonthList
         {
             get
@@ -80,6 +88,7 @@ namespace AutoFilledIn
 
 
         private static string[] _nationList = ["汉族", "畲族", "回族"];
+        [XmlIgnore]
         public string[] nationList
         {
             get => _nationList;
