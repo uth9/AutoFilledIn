@@ -8,7 +8,7 @@
         Title="辅助录入工具" Height="600" Width="820" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False" />
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName}" >
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName}" MaxLength="4">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -26,13 +26,13 @@
             </ComboBox.DataContext>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId}">
+        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId}" MaxLength="18">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
-        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId}">
+        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId}" MaxLength="18">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -51,7 +51,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber}">
+        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber}" MaxLength="11">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -67,7 +67,7 @@
                 <local:Student/>
             </CheckBox.DataContext>
         </CheckBox>
-        <DataGrid x:Name="studentData" Margin="0,190,0,0" Grid.ColumnSpan="3" AutoGenerateColumns="False" SelectionMode="Single" EnableRowVirtualization="False" IsReadOnly="True" >
+        <DataGrid x:Name="studentData" Margin="0,190,0,0" Grid.ColumnSpan="3" AutoGenerateColumns="False" SelectionMode="Single" EnableRowVirtualization="False" IsReadOnly="True" MouseDoubleClick="studentData_MouseDoubleClick">
             <DataGrid.DataContext>
                 <local:Student/>
             </DataGrid.DataContext>
@@ -79,7 +79,7 @@
                 <DataGridTextColumn Header="联系方式" Width="90" Binding="{Binding telephoneNumber}"/>
                 <DataGridTextColumn Header="身份证号" Width="180" Binding="{Binding personalId}"/>
                 <DataGridTextColumn Header="住址" Width="180" Binding="{Binding address}"/>
-                <DataGridTextColumn Header="志愿者" Width="53" Binding="{Binding volunteerState}"/>
+                <DataGridCheckBoxColumn Header="志愿者" Width="53" Binding="{Binding volunteerState}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateNewColumnButton" Content="新建条目" HorizontalAlignment="Left" Margin="523,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="CreateNewColumnButton_Click"/>

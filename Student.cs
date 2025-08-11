@@ -94,6 +94,7 @@ namespace AutoFilledIn
             set
             {
                 this._studentName = value;
+                this.onPropertyChanged(nameof(this.studentName));
             }
         }
         private string _studentNation = "汉族";
@@ -103,6 +104,7 @@ namespace AutoFilledIn
             set
             {
                 this._studentNation = value;
+                this.onPropertyChanged(nameof(this.studentNation));
             }
         }
         private string _personalId = "";
@@ -112,6 +114,7 @@ namespace AutoFilledIn
             set
             {
                 this._personalId = value;
+                this.onPropertyChanged(nameof(this.personalId));
             }
         }
         private string _reConfirmedId = "";
@@ -121,6 +124,7 @@ namespace AutoFilledIn
             set
             {
                 this._reConfirmedId = value;
+                this.onPropertyChanged(nameof(this.reConfirmedId));
             }
         }
         private string _developedNumber = "";
@@ -130,6 +134,7 @@ namespace AutoFilledIn
             set
             {
                 this._developedNumber = value;
+                this.onPropertyChanged(nameof(this.developedNumber));
             }
         }
         private string[] _regDate = ["2025", "01"];
@@ -144,6 +149,8 @@ namespace AutoFilledIn
             set
             {
                 this._regDate[0] = value;
+                this.onPropertyChanged(nameof(this.regYear));
+                this.onPropertyChanged(nameof(this.regDate));
             }
         }
         public string regMonth
@@ -152,6 +159,8 @@ namespace AutoFilledIn
             set
             {
                 this._regDate[1] = value;
+                this.onPropertyChanged(nameof(this.regMonth));
+                this.onPropertyChanged(nameof(this.regDate));
             }
         }
         private string _telephoneNumber = "";
@@ -161,6 +170,7 @@ namespace AutoFilledIn
             set
             {
                 this._telephoneNumber = value;
+                this.onPropertyChanged(nameof(this.telephoneNumber));
             }
         }
         private string _address = "";
@@ -170,6 +180,7 @@ namespace AutoFilledIn
             set
             {
                 this._address = value;
+                this.onPropertyChanged(nameof(this.address));
             }
         }
         private bool _volunteerState = true;
@@ -179,8 +190,10 @@ namespace AutoFilledIn
             set
             {
                 this._volunteerState = value;
+                this.onPropertyChanged(nameof(volunteerState));
             }
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void onPropertyChanged(string propertyName)

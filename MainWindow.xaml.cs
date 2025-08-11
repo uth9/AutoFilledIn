@@ -21,9 +21,10 @@ namespace AutoFilledIn
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        
-        
+
+        public int selectedIndex;
+
+
         /// 初始化显示列表资源
         public ObservableCollection<Student> studentDataList = new ObservableCollection<Student>();
 
@@ -47,6 +48,9 @@ namespace AutoFilledIn
         public MainWindow()
         {
             InitializeComponent();
+
+            /// 必要数据初始化
+            
             studentData.ItemsSource = studentDataList;
 
             /// 生成默认对象
@@ -73,7 +77,7 @@ namespace AutoFilledIn
         private void CreateNewColumnButton_Click(object sender, RoutedEventArgs e)
         {
             
-            studentDataList.Add(new Student(true)
+            this.studentDataList.Add(new Student(true)
             {
                 studentName = "",
                 studentNation = "汉族",
@@ -86,6 +90,12 @@ namespace AutoFilledIn
                 volunteerState = true,
             });
             RefreshDataContext(studentDataList[^1]);
+        }
+
+        private void studentData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            this.selectedIndex = studentData.SelectedIndex;
+            RefreshDataContext(studentDataList[selectedIndex]);
         }
     }
 }
