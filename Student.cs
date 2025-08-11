@@ -22,6 +22,17 @@ namespace AutoFilledIn
 
         public static List<Student> StudentDatas = [];
 
+        /// 设置编号
+        private int _number = StudentDatas.Count;
+        public int number
+        {
+            get => this._number;
+            set
+            {
+                this._number = value;
+            }
+        }
+
         /// 初始化日期
         private static string _todayYear = DateTime.Today.ToString("yyyy");
         [XmlIgnore]

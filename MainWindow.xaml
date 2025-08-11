@@ -14,7 +14,7 @@
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="194,12,0,0" TextWrapping="Wrap" Text="发展编号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="developNumberBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding developedNumber, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox x:Name="developNumberBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding developedNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -26,13 +26,13 @@
             </ComboBox.DataContext>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18">
+        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
-        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18">
+        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -51,7 +51,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber, UpdateSourceTrigger=PropertyChanged}" MaxLength="11">
+        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber, UpdateSourceTrigger=PropertyChanged}" MaxLength="11" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
@@ -72,12 +72,13 @@
                 <local:Student/>
             </DataGrid.DataContext>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="序号" Width="40" Binding="{Binding number}" />
                 <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding studentName}" />
                 <DataGridTextColumn Header="民族" Width="40" Binding="{Binding studentNation}"/>
                 <DataGridTextColumn Header="发展编号" Width="110" Binding="{Binding developedNumber}"/>
                 <DataGridTextColumn Header="入团时间" Width="80" Binding="{Binding regDate}"/>
                 <DataGridTextColumn Header="联系方式" Width="90" Binding="{Binding telephoneNumber}"/>
-                <DataGridTextColumn Header="身份证号" Width="180" Binding="{Binding personalId}"/>
+                <DataGridTextColumn Header="身份证号" Width="140" Binding="{Binding personalId}"/>
                 <DataGridTextColumn Header="住址" Width="180" Binding="{Binding address}"/>
                 <DataGridCheckBoxColumn Header="志愿者" Width="53" Binding="{Binding volunteerState}"/>
             </DataGrid.Columns>

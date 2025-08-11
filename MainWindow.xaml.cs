@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -60,6 +61,7 @@ namespace AutoFilledIn
             /// 生成默认对象
             Student student = new Student(true)
             {
+                number = 1,
                 studentName = "",
                 studentNation = "汉族",
                 personalId = "",
@@ -72,10 +74,41 @@ namespace AutoFilledIn
             };
             studentDataList.Add(student);
             RefreshDataContext(student);
-            
+        }
 
-            
-            
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TextBoxPasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                string text = (string)e.DataObject.GetData(typeof(string));
+                Regex regex = new Regex("[^0-9]+");
+                if (regex.IsMatch(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
+            }
+        }
+
+        private void NumberOnlyBox_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox originSender = sender as TextBox;
+            if (originSender != null && originSender.Text != "")
+            {
+                originSender.Text = Regex.Replace(originSender.Text, "[^0-9]", "");
+                MessageBox.Show(@$"{originSender.Name}内不能出现数字以外的字符", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                e.Handled = true;
+            }
         }
 
         private void CreateNewColumnButton_Click(object sender, RoutedEventArgs e)
@@ -83,11 +116,16 @@ namespace AutoFilledIn
             
             this.studentDataList.Add(new Student(true)
             {
+                number = studentDataList.Count + 1,
                 studentName = "",
                 studentNation = nationBox.Text,
                 personalId = "",
                 reConfirmedId = "",
-                developedNumber = developNumberBox.Text += 1,
+                developedNumber = developNumberBox.Text switch
+                {
+                    "" => "",
+                    _ => (int.Parse(developNumberBox.Text) + 1).ToString()
+                },
                 address = "",
                 regDate = string.Concat(registedYearBox.Text, "/", registedMonthBox.Text),
                 telephoneNumber = "",
