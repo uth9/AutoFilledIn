@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfStudent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Student>
+    <studentName />
+    <studentNation>汉族</studentNation>
+    <personalId />
+    <reConfirmedId />
+    <developedNumber />
+    <regDate>2025/01</regDate>
+    <regYear>2025</regYear>
+    <regMonth>01</regMonth>
+    <telephoneNumber />
+    <address />
+    <volunteerState>true</volunteerState>
+  </Student>
+</ArrayOfStudent>

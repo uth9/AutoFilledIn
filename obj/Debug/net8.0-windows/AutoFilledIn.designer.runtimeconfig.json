@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\111\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\111\\.nuget\\packages",
+      "C:\\Users\\HUAWEI\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\HUAWEI\\.nuget\\packages",
       "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {

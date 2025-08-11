@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -50,8 +51,10 @@ namespace AutoFilledIn
         {
             InitializeComponent();
 
+            /// 设置默认焦点
+            nameBox.Focus();
+
             /// 必要数据初始化
-            
             studentData.ItemsSource = studentDataList;
 
             /// 生成默认对象
@@ -81,16 +84,17 @@ namespace AutoFilledIn
             this.studentDataList.Add(new Student(true)
             {
                 studentName = "",
-                studentNation = "汉族",
+                studentNation = nationBox.Text,
                 personalId = "",
                 reConfirmedId = "",
-                developedNumber = "",
+                developedNumber = developNumberBox.Text += 1,
                 address = "",
-                regDate = "2025/01",
+                regDate = string.Concat(registedYearBox.Text, "/", registedMonthBox.Text),
                 telephoneNumber = "",
                 volunteerState = true,
             });
             RefreshDataContext(studentDataList[^1]);
+            nameBox.Focus();
         }
 
         private void studentData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -101,17 +105,58 @@ namespace AutoFilledIn
 
         private void DelColumnButton_Click(object sender, RoutedEventArgs e)
         {
-            studentDataList.Remove((Student)studentData.SelectedItem);
+            if (studentDataList.Count > 1)
+            {
+                try
+                {
+                    studentDataList.Remove((Student)studentData.SelectedItem);
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(@"删除档案失败", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"至少需要存在一份档案", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void ReloadFromButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            switch (File.Exists(@".\tempData.log")){
+                case true:
+                    string XmlString = File.ReadAllText(@".\tempData.log");
+                    try
+                    {
+                        studentDataList = XmlHelper.Deserialize<Student>(XmlString);
+                        RefreshDataContext(studentDataList[0]);
+                        MessageBox.Show(@"数据加载成功", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception err)
+                    {
+                        
+                    }
+                    break;
+                case false:
+                    MessageBox.Show(@"路径.\tempData.log不存在，请检查根目录", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+            }
         }
 
         private void SaveToButton_Click(object sender, RoutedEventArgs e)
         {
             string XmlString = XmlHelper.Serialize((ObservableCollection<Student>)studentDataList);
+            string path = @".\tempData.log";
+            try
+            {
+                File.WriteAllText(path, XmlString);
+                MessageBox.Show(@"数据写入成功，位置在<程序根目录\tempData.log>", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(@"数据写入失败，请检查权限或尝试联系开发者", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

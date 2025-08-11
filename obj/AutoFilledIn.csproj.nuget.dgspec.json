@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\AutoFilledIn.csproj": {}
+    "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj": {}
   },
   "projects": {
-    "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\AutoFilledIn.csproj": {
+    "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\AutoFilledIn.csproj",
+        "projectUniqueName": "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj",
         "projectName": "AutoFilledIn",
-        "projectPath": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\AutoFilledIn.csproj",
-        "packagesPath": "C:\\Users\\111\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\111\\source\\repos\\AutoFilledIn\\AutoFilledIn\\obj\\",
+        "projectPath": "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj",
+        "packagesPath": "C:\\Users\\HUAWEI\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\AutoFilledIn\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\111\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HUAWEI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -68,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
