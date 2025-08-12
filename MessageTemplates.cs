@@ -40,7 +40,7 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult ShowSuccessfulRegHotKey()
         {
-            return MessageBox.Show(@"快捷键注册成功", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show("快捷键注册成功\n注意：Ctrl快捷键目前似乎会带来许多未知的问题，请谨慎使用", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public static MessageBoxResult ShowFailedRegHotKey()
         {
@@ -65,6 +65,10 @@ namespace AutoFilledIn
         public static MessageBoxResult AskIfOverrideData()
         {
             return MessageBox.Show(@"确认覆盖当前数据？", "Info", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+        }
+        public static MessageBoxResult TextIsZero(TextBox textBox)
+        {
+            return MessageBox.Show(@$"输入框{textBox.Name}不能为空，请重试", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

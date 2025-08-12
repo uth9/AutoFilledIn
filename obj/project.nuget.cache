@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PwlmiG17n1E=",
+  "dgSpecHash": "djAOGsX9kvQ=",
   "success": true,
   "projectFilePath": "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\HUAWEI\\.nuget\\packages\\globalhotkey\\1.1.0\\globalhotkey.1.1.0.nupkg.sha512"
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\globalhotkey\\1.1.0\\globalhotkey.1.1.0.nupkg.sha512",
+    "C:\\Users\\HUAWEI\\.nuget\\packages\\inputsimulatorstandard\\1.0.0\\inputsimulatorstandard.1.0.0.nupkg.sha512"
   ],
   "logs": [
     {

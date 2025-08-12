@@ -218,19 +218,19 @@ namespace AutoFilledIn
 
         private void StartServiceButton_Click(object sender, RoutedEventArgs e)
         {
-            bool CtrlState = this.HotKeyCtrl.IsChecked switch { true => true, _ => false };
-            bool ShiftState = this.HotKeyShift.IsChecked switch { true => true, _ => false };
-            int CustomCharCode = (int)Char.ToUpper(this.HotKeyCustom.Text[0]);
-            CustomKey = KeyInterop.KeyFromVirtualKey(CustomCharCode);
-            CustomModifierKey = (CtrlState, ShiftState) switch
-            {
-                (true, true) => ModifierKeys.Control | ModifierKeys.Shift,
-                (true, false) => ModifierKeys.Control,
-                (false, true) => ModifierKeys.Shift,
-                (false, false) => ModifierKeys.None,
-            };
             try
             {
+                bool CtrlState = this.HotKeyCtrl.IsChecked switch { true => true, _ => false };
+                bool ShiftState = this.HotKeyShift.IsChecked switch { true => true, _ => false };
+                int CustomCharCode = (int)Char.ToUpper(this.HotKeyCustom.Text[0]);
+                CustomKey = KeyInterop.KeyFromVirtualKey(CustomCharCode);
+                CustomModifierKey = (CtrlState, ShiftState) switch
+                {
+                    (true, true) => ModifierKeys.Control | ModifierKeys.Shift,
+                    (true, false) => ModifierKeys.Control,
+                    (false, true) => ModifierKeys.Shift,
+                    (false, false) => ModifierKeys.None,
+                };
                 GlobalHotkeyManager.Register(CustomKey,CustomModifierKey);
                 GlobalHotkeyManager.KeyPressed += (sender, e) =>
                 {
@@ -238,8 +238,15 @@ namespace AutoFilledIn
                 };
                 MessageTemplates.ShowSuccessfulRegHotKey();
                 ChangeHotKeyGroupEnabledState(false);
+                this.StopServiceButton.IsEnabled = true;
+                this.StartServiceButton.IsEnabled = false;
             }
-            catch( Exception err ) {
+            catch ( IndexOutOfRangeException )
+            {
+                MessageTemplates.TextIsZero(this.HotKeyCustom);
+            }
+            catch( Exception err ) 
+            {
                 MessageTemplates.ShowFailedRegHotKey();
             }
             
@@ -260,7 +267,9 @@ namespace AutoFilledIn
         }
         private void HotKeyPressed()
         {
-            MessageBox.Show(@$"快捷键被按下", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            // MessageBox.Show(@$"快捷键被按下", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            InputSimulatorService.SimulateText("ThisIsaTest.");
+            InputSimulatorService.SimulateText("This isthenexttest.");
         }
 
         private void StopServiceButton_Click(object sender, RoutedEventArgs e)
@@ -270,6 +279,8 @@ namespace AutoFilledIn
                 GlobalHotkeyManager.Unregister(CustomKey, CustomModifierKey);
                 ChangeHotKeyGroupEnabledState(true);
                 MessageTemplates.ShowSuccessfulUnregHotKey();
+                this.StartServiceButton.IsEnabled = true;
+                this.StopServiceButton.IsEnabled = false;
             }
             catch (Exception err)
             {

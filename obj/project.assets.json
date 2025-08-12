@@ -10,6 +10,15 @@
         "runtime": {
           "lib/GlobalHotKey.dll": {}
         }
+      },
+      "InputSimulatorStandard/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/InputSimulatorStandard.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/InputSimulatorStandard.dll": {}
+        }
       }
     }
   },
@@ -25,11 +34,24 @@
         "globalhotkey.nuspec",
         "lib/GlobalHotKey.dll"
       ]
+    },
+    "InputSimulatorStandard/1.0.0": {
+      "sha512": "qJ4MVLBPJ9iOIbieFaZ/62BDBZ8jvA3hjYr0XY69vU6qcjYJi+Cn+pSKYyUE/Nu9w+OBz34RfLraIcXigRyWbw==",
+      "type": "package",
+      "path": "inputsimulatorstandard/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "inputsimulatorstandard.1.0.0.nupkg.sha512",
+        "inputsimulatorstandard.nuspec",
+        "lib/netstandard2.0/InputSimulatorStandard.dll"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
-      "GlobalHotKey >= 1.1.0"
+      "GlobalHotKey >= 1.1.0",
+      "InputSimulatorStandard >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -85,6 +107,10 @@
           "GlobalHotKey": {
             "target": "Package",
             "version": "[1.1.0, )"
+          },
+          "InputSimulatorStandard": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           }
         },
         "imports": [
