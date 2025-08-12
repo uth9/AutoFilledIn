@@ -8,42 +8,42 @@
         Title="辅助录入工具" Height="600" Width="820" ResizeMode="CanMinimize">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="18,12,0,0" TextWrapping="Wrap" Text="姓名：" VerticalAlignment="Top" IsEnabled="False" />
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" >
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="56,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding studentName, UpdateSourceTrigger=PropertyChanged}" MaxLength="4" >
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="194,12,0,0" TextWrapping="Wrap" Text="发展编号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="developNumberBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding developedNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
+        <TextBox x:Name="DevelopNumberBox" HorizontalAlignment="Left" Margin="256,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding developedNumber, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="NumberOnlyBox_PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="402,12,0,0" TextWrapping="Wrap" Text="民族：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="nationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" SelectedItem="{Binding studentNation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding nationList}">
+        <ComboBox x:Name="NationBox" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" SelectedItem="{Binding studentNation, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding nationList}">
             <ComboBox.DataContext>
                 <local:Student/>
             </ComboBox.DataContext>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,42,0,0" TextWrapping="Wrap" Text="身份证号：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="personalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
+        <TextBox x:Name="PersonalIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding personalId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="NumberOnlyBox_PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
-        <TextBox x:Name="reConfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
+        <TextBox x:Name="ReconfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="NumberOnlyBox_PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,102,0,0" TextWrapping="Wrap" Text="入团时间：" VerticalAlignment="Top" IsEnabled="False"/>
-        <ComboBox x:Name="registedYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" IsEditable="True" SelectedItem="{Binding regYear, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding regYearList}">
+        <ComboBox x:Name="RegistedYearBox" HorizontalAlignment="Left" Margin="82,100,0,0" VerticalAlignment="Top" Width="60" Height="20"  IsReadOnly="True" IsEditable="True" SelectedItem="{Binding regYear, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding regYearList}">
             <ComboBox.DataContext>
                 <local:Student/>
             </ComboBox.DataContext>
         </ComboBox>
-        <ComboBox x:Name="registedMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True" SelectedItem="{Binding regMonth, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding regMonthList}">
+        <ComboBox x:Name="RegistedMonthBox" HorizontalAlignment="Left" Margin="168,100,0,0" VerticalAlignment="Top" Width="50" Height="20"  IsReadOnly="True" SelectedItem="{Binding regMonth, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding regMonthList}">
             <ComboBox.DataContext>
                 <local:Student/>
             </ComboBox.DataContext>
@@ -51,18 +51,18 @@
         <TextBlock HorizontalAlignment="Left" Margin="150,102,0,0" TextWrapping="Wrap" Text="年" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="226,102,0,0" TextWrapping="Wrap" Text="月" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBlock HorizontalAlignment="Left" Margin="316,102,0,0" TextWrapping="Wrap" Text="联系方式：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="telephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber, UpdateSourceTrigger=PropertyChanged}" MaxLength="11" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="PreviewLostKeyboardFocus">
+        <TextBox x:Name="TelephoneNumberBox" HorizontalAlignment="Left" Margin="376,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20" Text="{Binding telephoneNumber, UpdateSourceTrigger=PropertyChanged}" MaxLength="11" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="NumberOnlyBox_PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,130,0,0" TextWrapping="Wrap" Text="户籍地址：" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Margin="82,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="20" Text="{Binding address, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="82,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414" Height="20" Text="{Binding address, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>
         </TextBox>
-        <CheckBox x:Name="ifRegAsVolunteerBox" Content="是否成为注册志愿者" HorizontalAlignment="Left" Margin="366,160,0,0" VerticalAlignment="Top" IsChecked="{Binding volunteerState, UpdateSourceTrigger=PropertyChanged}">
+        <CheckBox x:Name="IfRegAsVolunteerBox" Content="是否成为注册志愿者" HorizontalAlignment="Left" Margin="366,160,0,0" VerticalAlignment="Top" IsChecked="{Binding volunteerState, UpdateSourceTrigger=PropertyChanged}">
             <CheckBox.DataContext>
                 <local:Student/>
             </CheckBox.DataContext>
@@ -87,11 +87,11 @@
         <Button x:Name="DelColumnButton" Content="删除条目" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="DelColumnButton_Click"/>
         <Button x:Name="ReloadFromButton" Content="从文件加载" HorizontalAlignment="Left" Margin="523,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="ReloadFromButton_Click"/>
         <Button x:Name="SaveToButton" Content="保存到文件" HorizontalAlignment="Left" Margin="666,55,0,0" VerticalAlignment="Top" Height="30" Width="113" IsTabStop="False" Click="SaveToButton_Click"/>
-        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113"  IsTabStop="False"/>
+        <Button x:Name="StartServiceButton" Content="启动服务" HorizontalAlignment="Left" Margin="523,100,0,0" VerticalAlignment="Top" Height="30" Width="113"  IsTabStop="False" Click="StartServiceButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="659,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
-        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1" IsTabStop="False"/>
+        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1" IsTabStop="False" PreviewLostKeyboardFocus="HotKeyCustom_PreviewLostKeyboardFocus"/>
         <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="567,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
         <CheckBox x:Name="HotKeyShift" Content="Shift" HorizontalAlignment="Left" Margin="609,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
 

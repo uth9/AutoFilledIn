@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\GitHub\\AutoFilledIn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|d:\\github\\autofilledin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|d:\\github\\autofilledin\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|d:\\github\\autofilledin\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{694253F4-774C-4F0D-B7D2-E922B3DB58CA}|AutoFilledIn.csproj|d:\\github\\autofilledin\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -45,17 +45,18 @@
               "ToolTip": "D:\\GitHub\\AutoFilledIn\\AutoFilledIn.csproj",
               "RelativeToolTip": "AutoFilledIn.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-11T11:49:15.25Z"
+              "WhenOpened": "2025-08-11T11:49:15.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAhwGgAAAAMAAAAAAAAAA==",
+              "ToolTip": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "MainWindow.xaml.cs*",
+              "ViewState": "AgIAAMsAAAAAAAAAAADwv88AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T04:49:45.664Z",
               "EditorCaption": ""
@@ -75,12 +76,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml*",
-              "RelativeToolTip": "MainWindow.xaml*",
+              "ToolTip": "D:\\GitHub\\AutoFilledIn\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-08-03T13:13:28.146Z",
               "EditorCaption": ""
@@ -95,7 +96,8 @@
               "RelativeToolTip": "XmlHelper.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAqwB4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-11T12:42:30.059Z"
+              "WhenOpened": "2025-08-11T12:42:30.059Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

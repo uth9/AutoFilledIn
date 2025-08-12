@@ -1,11 +1,36 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "GlobalHotKey/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/GlobalHotKey.dll": {}
+        },
+        "runtime": {
+          "lib/GlobalHotKey.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GlobalHotKey/1.1.0": {
+      "sha512": "KkEHhyM+sSh27kF1d3YlfpXdYlkfu17XCiI3WfYy1cn65y3loR7f+GMkMwHTgf0xSyS3QdXTKCRfVLzb7jgJFQ==",
+      "type": "package",
+      "path": "globalhotkey/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "globalhotkey.1.1.0.nupkg.sha512",
+        "globalhotkey.nuspec",
+        "lib/GlobalHotKey.dll"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "GlobalHotKey >= 1.1.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\HUAWEI\\.nuget\\packages\\": {},
@@ -56,6 +81,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "GlobalHotKey": {
+            "target": "Package",
+            "version": "[1.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -78,5 +109,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net8.0-windows7.0”还原包“GlobalHotKey 1.1.0”。此包可能与项目不完全兼容。",
+      "libraryId": "GlobalHotKey",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

@@ -44,3 +44,6 @@ D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\refint\AutoFilledIn.dll
 D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\AutoFilledIn.pdb
 D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\AutoFilledIn.genruntimeconfig.cache
 D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\ref\AutoFilledIn.dll
+D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\AutoFilledIn.csproj.AssemblyReference.cache
+D:\GitHub\AutoFilledIn\bin\Debug\net8.0-windows\GlobalHotKey.dll
+D:\GitHub\AutoFilledIn\obj\Debug\net8.0-windows\AutoFill.C0AD90B6.Up2Date

@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
+using GlobalHotKey;
 
 namespace AutoFilledIn
 {
@@ -31,19 +32,22 @@ namespace AutoFilledIn
         /// 初始化数据库相关定义
         private static string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Data.mdf");
 
+        /// 初始化快捷键管理器
+        HotKeyManager GlobalHotkeyManager = new HotKeyManager();
+
         /// 刷新数据上下文
         public void RefreshDataContext(Student student)
         {
-            nameBox.DataContext = student;
-            developNumberBox.DataContext = student;
-            nationBox.DataContext = student;
-            personalIdentifyCodeBox.DataContext = student;
-            reConfirmedIdentifyCodeBox.DataContext= student;
-            registedYearBox.DataContext = student;
-            registedMonthBox.DataContext = student;
-            telephoneNumberBox.DataContext = student;
-            addressBox.DataContext = student;
-            ifRegAsVolunteerBox.DataContext = student;
+            NameBox.DataContext = student;
+            DevelopNumberBox.DataContext = student;
+            NationBox.DataContext = student;
+            PersonalIdentifyCodeBox.DataContext = student;
+            ReconfirmedIdentifyCodeBox.DataContext= student;
+            RegistedYearBox.DataContext = student;
+            RegistedMonthBox.DataContext = student;
+            TelephoneNumberBox.DataContext = student;
+            AddressBox.DataContext = student;
+            IfRegAsVolunteerBox.DataContext = student;
             studentData.ItemsSource = studentDataList;
         }
 
@@ -53,7 +57,7 @@ namespace AutoFilledIn
             InitializeComponent();
 
             /// 设置默认焦点
-            nameBox.Focus();
+            NameBox.Focus();
 
             /// 必要数据初始化
             studentData.ItemsSource = studentDataList;
@@ -118,21 +122,21 @@ namespace AutoFilledIn
             {
                 number = studentDataList.Count + 1,
                 studentName = "",
-                studentNation = nationBox.Text,
+                studentNation = NationBox.Text,
                 personalId = "",
                 reConfirmedId = "",
-                developedNumber = developNumberBox.Text switch
+                developedNumber = DevelopNumberBox.Text switch
                 {
                     "" => "",
-                    _ => (int.Parse(developNumberBox.Text) + 1).ToString()
+                    _ => (int.Parse(DevelopNumberBox.Text) + 1).ToString()
                 },
                 address = "",
-                regDate = string.Concat(registedYearBox.Text, "/", registedMonthBox.Text),
+                regDate = string.Concat(RegistedYearBox.Text, "/", RegistedMonthBox.Text),
                 telephoneNumber = "",
                 volunteerState = true,
             });
             RefreshDataContext(studentDataList[^1]);
-            nameBox.Focus();
+            NameBox.Focus();
         }
 
         private void studentData_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -173,7 +177,7 @@ namespace AutoFilledIn
                     }
                     catch (Exception err)
                     {
-                        
+                        MessageBox.Show(@"数据加载失败", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     break;
                 case false:
@@ -194,6 +198,24 @@ namespace AutoFilledIn
             catch(Exception err)
             {
                 MessageBox.Show(@"数据写入失败，请检查权限或尝试联系开发者", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void StartServiceButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool CtrlState = this.HotKeyCtrl.IsChecked switch { true => true, _ => false };
+            bool ShiftState = this.HotKeyShift.IsChecked switch { true => true, _ => false };
+            //GlobalHotkeyManager.Register(Key.C, )
+        }
+
+        private void HotKeyCustom_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox originSender = sender as TextBox;
+            if (originSender != null && originSender.Text != "")
+            {
+                originSender.Text = Regex.Replace(originSender.Text, "[^a-z,A-Z]", "");
+                MessageBox.Show(@$"{originSender.Name}内不能出现字母以外的字符", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                e.Handled = true;
             }
         }
     }
