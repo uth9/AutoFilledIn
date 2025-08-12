@@ -34,9 +34,19 @@ namespace AutoFilledIn
 
         /// 初始化快捷键管理器
         HotKeyManager GlobalHotkeyManager = new HotKeyManager();
+        Key CustomKey;
+        ModifierKeys CustomModifierKey;
+        
+        /// 启用、禁用热键修改
+        private void ChangeHotKeyGroupEnabledState(bool State)
+        {
+            HotKeyCtrl.IsEnabled = State;
+            HotKeyShift.IsEnabled = State;
+            HotKeyCustom.IsEnabled = State;
+        }
 
         /// 刷新数据上下文
-        public void RefreshDataContext(Student student)
+        private void RefreshDataContext(Student student)
         {
             NameBox.DataContext = student;
             DevelopNumberBox.DataContext = student;
@@ -109,9 +119,12 @@ namespace AutoFilledIn
             TextBox originSender = sender as TextBox;
             if (originSender != null && originSender.Text != "")
             {
-                originSender.Text = Regex.Replace(originSender.Text, "[^0-9]", "");
-                MessageBox.Show(@$"{originSender.Name}内不能出现数字以外的字符", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                e.Handled = true;
+                string NewText = Regex.Replace(originSender.Text, "[^0-9]", "");
+                if (NewText != originSender.Text)
+                {
+                    MessageTemplates.ShowNumberOnly(originSender);
+                    e.Handled = true;
+                }
             }
         }
 
@@ -155,12 +168,12 @@ namespace AutoFilledIn
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show(@"删除档案失败", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageTemplates.ShowFailedDeleteFile();
                 }
             }
             else
             {
-                MessageBox.Show(@"至少需要存在一份档案", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageTemplates.ShowDocMinimum();
             }
         }
 
@@ -170,18 +183,20 @@ namespace AutoFilledIn
                 case true:
                     string XmlString = File.ReadAllText(@".\tempData.log");
                     try
-                    {
-                        studentDataList = XmlHelper.Deserialize<Student>(XmlString);
-                        RefreshDataContext(studentDataList[0]);
-                        MessageBox.Show(@"数据加载成功", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                    {   if (MessageTemplates.AskIfOverrideData() == MessageBoxResult.Yes)
+                        {
+                            studentDataList = XmlHelper.Deserialize<Student>(XmlString);
+                            RefreshDataContext(studentDataList[0]);
+                            MessageTemplates.ShowDataLoadSuccess();
+                        }
                     }
                     catch (Exception err)
                     {
-                        MessageBox.Show(@"数据加载失败", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageTemplates.ShowDataLoaded();
                     }
                     break;
                 case false:
-                    MessageBox.Show(@"路径.\tempData.log不存在，请检查根目录", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageTemplates.ShowPathNotExist();
                     break;
             }
         }
@@ -193,11 +208,11 @@ namespace AutoFilledIn
             try
             {
                 File.WriteAllText(path, XmlString);
-                MessageBox.Show(@"数据写入成功，位置在<程序根目录\tempData.log>", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageTemplates.ShowSuccessfulWriteData();
             }
             catch(Exception err)
             {
-                MessageBox.Show(@"数据写入失败，请检查权限或尝试联系开发者", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageTemplates.ShowFailedWriteData();
             }
         }
 
@@ -205,7 +220,29 @@ namespace AutoFilledIn
         {
             bool CtrlState = this.HotKeyCtrl.IsChecked switch { true => true, _ => false };
             bool ShiftState = this.HotKeyShift.IsChecked switch { true => true, _ => false };
-            //GlobalHotkeyManager.Register(Key.C, )
+            int CustomCharCode = (int)Char.ToUpper(this.HotKeyCustom.Text[0]);
+            CustomKey = KeyInterop.KeyFromVirtualKey(CustomCharCode);
+            CustomModifierKey = (CtrlState, ShiftState) switch
+            {
+                (true, true) => ModifierKeys.Control | ModifierKeys.Shift,
+                (true, false) => ModifierKeys.Control,
+                (false, true) => ModifierKeys.Shift,
+                (false, false) => ModifierKeys.None,
+            };
+            try
+            {
+                GlobalHotkeyManager.Register(CustomKey,CustomModifierKey);
+                GlobalHotkeyManager.KeyPressed += (sender, e) =>
+                {
+                    HotKeyPressed();
+                };
+                MessageTemplates.ShowSuccessfulRegHotKey();
+                ChangeHotKeyGroupEnabledState(false);
+            }
+            catch( Exception err ) {
+                MessageTemplates.ShowFailedRegHotKey();
+            }
+            
         }
 
         private void HotKeyCustom_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -213,9 +250,30 @@ namespace AutoFilledIn
             TextBox originSender = sender as TextBox;
             if (originSender != null && originSender.Text != "")
             {
-                originSender.Text = Regex.Replace(originSender.Text, "[^a-z,A-Z]", "");
-                MessageBox.Show(@$"{originSender.Name}内不能出现字母以外的字符", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-                e.Handled = true;
+                string NewText = Regex.Replace(originSender.Text, "[^a-z,A-Z]", "");
+                if (NewText != originSender.Text)
+                {
+                    MessageTemplates.ShowCharOnly(originSender);
+                    e.Handled = true;
+                }
+            }
+        }
+        private void HotKeyPressed()
+        {
+            MessageBox.Show(@$"快捷键被按下", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void StopServiceButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GlobalHotkeyManager.Unregister(CustomKey, CustomModifierKey);
+                ChangeHotKeyGroupEnabledState(true);
+                MessageTemplates.ShowSuccessfulUnregHotKey();
+            }
+            catch (Exception err)
+            {
+                MessageTemplates.ShowFailedUnregHotKey();
             }
         }
     }

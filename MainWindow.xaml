@@ -91,9 +91,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="523,142,0,0" TextWrapping="Wrap" Text="快捷键：" VerticalAlignment="Top" IsEnabled="False"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="659,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="11"><Run Language="zh-cn" Text="+"/><LineBreak/><Run Language="zh-cn"/></TextBlock>
-        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" UndoLimit="1" IsTabStop="False" PreviewLostKeyboardFocus="HotKeyCustom_PreviewLostKeyboardFocus"/>
+        <TextBox x:Name="HotKeyCustom" HorizontalAlignment="Left" Margin="671,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" Height="20" MaxLength="1" IsTabStop="False" PreviewLostKeyboardFocus="HotKeyCustom_PreviewLostKeyboardFocus"/>
         <CheckBox x:Name="HotKeyCtrl" Content="Ctrl" HorizontalAlignment="Left" Margin="567,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
         <CheckBox x:Name="HotKeyShift" Content="Shift" HorizontalAlignment="Left" Margin="609,143,0,0" VerticalAlignment="Top" IsTabStop="False"/>
+        <Button x:Name="StopServiceButton" Content="停止服务" HorizontalAlignment="Left" Margin="666,100,0,0" VerticalAlignment="Top" Height="30" Width="113"  IsTabStop="False" Click="StopServiceButton_Click"/>
 
 
     </Grid>
