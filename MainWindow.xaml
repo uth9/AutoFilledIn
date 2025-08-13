@@ -32,7 +32,7 @@
             </TextBox.DataContext>
         </TextBox>
         <TextBlock HorizontalAlignment="Left" Margin="18,72,0,0" TextWrapping="Wrap" Text="再次输入身份证号：" VerticalAlignment="Top" IsEnabled="False" Cursor=""/>
-        <TextBox x:Name="ReconfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="NumberOnlyBox_PreviewLostKeyboardFocus">
+        <TextBox x:Name="ReconfirmedIdentifyCodeBox" HorizontalAlignment="Left" Margin="194,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" Height="20" Text="{Binding reConfirmedId, UpdateSourceTrigger=PropertyChanged}" MaxLength="18" PreviewTextInput="NumberValidationTextBox" DataObject.Pasting="TextBoxPasting" PreviewLostKeyboardFocus="ReconfirmedBox_PreviewLostKeyboardFocus">
             <TextBox.DataContext>
                 <local:Student/>
             </TextBox.DataContext>

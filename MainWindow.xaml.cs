@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using GlobalHotKey;
 using System.Collections.ObjectModel;
-using System.Diagnostics.CodeAnalysis;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Serialization;
-using GlobalHotKey;
 
 namespace AutoFilledIn
 {
@@ -36,7 +23,7 @@ namespace AutoFilledIn
         HotKeyManager GlobalHotkeyManager = new HotKeyManager();
         Key CustomKey;
         ModifierKeys CustomModifierKey;
-        
+
         /// 启用、禁用热键修改
         private void ChangeHotKeyGroupEnabledState(bool State)
         {
@@ -52,7 +39,7 @@ namespace AutoFilledIn
             DevelopNumberBox.DataContext = student;
             NationBox.DataContext = student;
             PersonalIdentifyCodeBox.DataContext = student;
-            ReconfirmedIdentifyCodeBox.DataContext= student;
+            ReconfirmedIdentifyCodeBox.DataContext = student;
             RegistedYearBox.DataContext = student;
             RegistedMonthBox.DataContext = student;
             TelephoneNumberBox.DataContext = student;
@@ -130,7 +117,7 @@ namespace AutoFilledIn
 
         private void CreateNewColumnButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             this.studentDataList.Add(new Student(true)
             {
                 number = studentDataList.Count + 1,
@@ -162,6 +149,7 @@ namespace AutoFilledIn
         {
             if (studentDataList.Count > 1)
             {
+#pragma warning disable CS0168 // 声明了变量，但从未使用过
                 try
                 {
                     studentDataList.Remove((Student)studentData.SelectedItem);
@@ -170,6 +158,7 @@ namespace AutoFilledIn
                 {
                     MessageTemplates.ShowFailedDeleteFile();
                 }
+#pragma warning restore CS0168 // 声明了变量，但从未使用过
             }
             else
             {
@@ -179,11 +168,14 @@ namespace AutoFilledIn
 
         private void ReloadFromButton_Click(object sender, RoutedEventArgs e)
         {
-            switch (File.Exists(@".\tempData.log")){
+            switch (File.Exists(@".\tempData.log"))
+            {
                 case true:
                     string XmlString = File.ReadAllText(@".\tempData.log");
+#pragma warning disable CS0168 // 声明了变量，但从未使用过
                     try
-                    {   if (MessageTemplates.AskIfOverrideData() == MessageBoxResult.Yes)
+                    {
+                        if (MessageTemplates.AskIfOverrideData() == MessageBoxResult.Yes)
                         {
                             studentDataList = XmlHelper.Deserialize<Student>(XmlString);
                             RefreshDataContext(studentDataList[0]);
@@ -194,6 +186,7 @@ namespace AutoFilledIn
                     {
                         MessageTemplates.ShowDataLoaded();
                     }
+#pragma warning restore CS0168 // 声明了变量，但从未使用过
                     break;
                 case false:
                     MessageTemplates.ShowPathNotExist();
@@ -205,19 +198,22 @@ namespace AutoFilledIn
         {
             string XmlString = XmlHelper.Serialize((ObservableCollection<Student>)studentDataList);
             string path = @".\tempData.log";
+#pragma warning disable CS0168 // 声明了变量，但从未使用过
             try
             {
                 File.WriteAllText(path, XmlString);
                 MessageTemplates.ShowSuccessfulWriteData();
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 MessageTemplates.ShowFailedWriteData();
             }
+#pragma warning restore CS0168 // 声明了变量，但从未使用过
         }
 
         private void StartServiceButton_Click(object sender, RoutedEventArgs e)
         {
+#pragma warning disable CS0168 // 声明了变量，但从未使用过
             try
             {
                 bool CtrlState = this.HotKeyCtrl.IsChecked switch { true => true, _ => false };
@@ -231,7 +227,7 @@ namespace AutoFilledIn
                     (false, true) => ModifierKeys.Shift,
                     (false, false) => ModifierKeys.None,
                 };
-                GlobalHotkeyManager.Register(CustomKey,CustomModifierKey);
+                GlobalHotkeyManager.Register(CustomKey, CustomModifierKey);
                 GlobalHotkeyManager.KeyPressed += (sender, e) =>
                 {
                     HotKeyPressed();
@@ -241,15 +237,16 @@ namespace AutoFilledIn
                 this.StopServiceButton.IsEnabled = true;
                 this.StartServiceButton.IsEnabled = false;
             }
-            catch ( IndexOutOfRangeException )
+            catch (IndexOutOfRangeException)
             {
-                MessageTemplates.TextIsZero(this.HotKeyCustom);
+                MessageTemplates.ShowTextIsZero(this.HotKeyCustom);
             }
-            catch( Exception err ) 
+            catch (Exception err)
             {
                 MessageTemplates.ShowFailedRegHotKey();
             }
-            
+#pragma warning restore CS0168 // 声明了变量，但从未使用过
+
         }
 
         private void HotKeyCustom_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -268,12 +265,21 @@ namespace AutoFilledIn
         private void HotKeyPressed()
         {
             // MessageBox.Show(@$"快捷键被按下", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            InputSimulatorService.SimulateText("ThisIsaTest.");
-            InputSimulatorService.SimulateText("This isthenexttest.");
+            InputSimulatorService.SimulateText(this.NameBox.Text);
+            InputSimulatorService.SimulateTab();
+            InputSimulatorService.SimulateText(this.PersonalIdentifyCodeBox.Text);
+            InputSimulatorService.SimulateTab();
+            InputSimulatorService.SimulateText(this.PersonalIdentifyCodeBox.Text);
+            InputSimulatorService.SimulateTab();
+            { InputSimulatorService.SimulateDown(2); } //TODO:默认输入汉族，其它之后再改
+            InputSimulatorService.SimulateTab();
+            { InputSimulatorService.SimulateDown(4); } //TODO:同理，以后再改，输入职业
+            //TODO:写不下去了，看过操作逻辑再说吧
         }
 
         private void StopServiceButton_Click(object sender, RoutedEventArgs e)
         {
+#pragma warning disable CS0168 // 声明了变量，但从未使用过
             try
             {
                 GlobalHotkeyManager.Unregister(CustomKey, CustomModifierKey);
@@ -285,6 +291,17 @@ namespace AutoFilledIn
             catch (Exception err)
             {
                 MessageTemplates.ShowFailedUnregHotKey();
+            }
+#pragma warning restore CS0168 // 声明了变量，但从未使用过
+        }
+
+        private void ReconfirmedBox_PreviewLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            NumberOnlyBox_PreviewLostKeyboardFocus(sender, e);
+            if (this.ReconfirmedIdentifyCodeBox.Text != this.PersonalIdentifyCodeBox.Text)
+            {
+                MessageTemplates.ShowTwoInputsNotEqual("身份证号");
+                e.Handled = true;
             }
         }
     }

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using InputSimulatorStandard;           // 核心命名空间
 // using WindowsInput.Native;    // VirtualKeyCode 枚举
 
 namespace AutoFilledIn
@@ -24,6 +23,20 @@ namespace AutoFilledIn
         public static void SimulateText(string text)
         {
             _inputSimulator.Keyboard.TextEntry(text);
+        }
+        public static void SimulateUp(int times = 1)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.UP);
+            }
+        }
+        public static void SimulateDown(int times = 1)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.DOWN);
+            }
         }
     }
 }

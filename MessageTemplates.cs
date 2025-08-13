@@ -20,7 +20,7 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult ShowDataLoadSuccess()
         {
-            return MessageBox.Show(@"数据加载成功", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show(@"数据加载成功", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public static MessageBoxResult ShowDataLoaded()
         {
@@ -32,7 +32,7 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult ShowSuccessfulWriteData()
         {
-            return MessageBox.Show(@"数据写入成功，位置在<程序根目录\tempData.log>", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show(@"数据写入成功，位置在<程序根目录\tempData.log>", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public static MessageBoxResult ShowFailedWriteData()
         {
@@ -40,7 +40,7 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult ShowSuccessfulRegHotKey()
         {
-            return MessageBox.Show("快捷键注册成功\n注意：Ctrl快捷键目前似乎会带来许多未知的问题，请谨慎使用", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show("快捷键注册成功\n注意：Ctrl快捷键目前似乎会带来许多未知的问题，请谨慎使用", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public static MessageBoxResult ShowFailedRegHotKey()
         {
@@ -56,7 +56,7 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult ShowSuccessfulUnregHotKey()
         {
-            return MessageBox.Show(@"快捷键解绑成功", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            return MessageBox.Show(@"快捷键解绑成功", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         public static MessageBoxResult ShowFailedUnregHotKey()
         {
@@ -64,11 +64,15 @@ namespace AutoFilledIn
         }
         public static MessageBoxResult AskIfOverrideData()
         {
-            return MessageBox.Show(@"确认覆盖当前数据？", "Info", MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            return MessageBox.Show(@"确认覆盖当前数据？", "Information", MessageBoxButton.OKCancel, MessageBoxImage.Information);
         }
-        public static MessageBoxResult TextIsZero(TextBox textBox)
+        public static MessageBoxResult ShowTextIsZero(TextBox textBox)
         {
             return MessageBox.Show(@$"输入框{textBox.Name}不能为空，请重试", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        public static MessageBoxResult ShowTwoInputsNotEqual(string text)
+        {
+            return MessageBox.Show(@$"两次{text}输入值不同，请重新输入", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
