@@ -24,19 +24,21 @@ namespace AutoFilledIn
         {
             _inputSimulator.Keyboard.TextEntry(text);
         }
-        public static void SimulateUp(int times = 1)
+        public static void SimulateUp(int times = 1, bool ifReturn = true)
         {
             for (int i = 0; i < times; i++)
             {
                 _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.UP);
             }
+            if (ifReturn) { _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.RETURN); }
         }
-        public static void SimulateDown(int times = 1)
+        public static void SimulateDown(int times = 1, bool ifReturn = true)
         {
             for (int i = 0; i < times; i++)
             {
                 _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.DOWN);
             }
+            if (ifReturn) { _inputSimulator.Keyboard.KeyPress(VirtualKeyCode.RETURN); }
         }
     }
 }

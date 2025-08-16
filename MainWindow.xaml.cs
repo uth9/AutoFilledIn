@@ -273,7 +273,16 @@ namespace AutoFilledIn
             InputSimulatorService.SimulateTab();
             { InputSimulatorService.SimulateDown(2); } //TODO:默认输入汉族，其它之后再改
             InputSimulatorService.SimulateTab();
-            { InputSimulatorService.SimulateDown(4); } //TODO:同理，以后再改，输入职业
+            InputSimulatorService.SimulateDown(2); //输入职业
+            InputSimulatorService.SimulateTab();
+            InputSimulatorService.SimulateDown(1,false);
+            InputSimulatorService.SimulateUp(3);
+            InputSimulatorService.SimulateTab();
+            InputSimulatorService.SimulateDown(1, false);
+            InputSimulatorService.SimulateUp(1);
+            InputSimulatorService.SimulateTab();
+            InputSimulatorService.SimulateDown(2);
+            //TODO: 要输日期力（悲）
             //TODO:写不下去了，看过操作逻辑再说吧
         }
 
